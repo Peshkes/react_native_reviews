@@ -1,17 +1,16 @@
 import React from 'react';
-import {View, Text} from "react-native";
+import {Button, StyleSheet, Text, View} from 'react-native';
+import {globalStyles} from "../styles/global";
 
-const Home = () => {
+const Home = ({navigation}) => {
     return (
-        <View style={styles.container}>
-            <Text>Home</Text>
+        <View style={globalStyles.container}>
+            <Button onPress={()=>navigation.navigate('Details')} title={'Go'}/>
+            {/*<Button onPress={()=>navigation.push('Details')} title={'Go'}/> не проверяет открыта ли она уже, а всегда добавляет новую*/}
         </View>
     );
 };
 
-const styles = StyleSheet.create({
-    container: {
-        padding: 24
-    }
-});
+const styles = StyleSheet.create({});
+
 export default Home;
