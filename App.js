@@ -1,22 +1,19 @@
-import {StyleSheet} from 'react-native';
-import Home from "./screens/home";
 import {NavigationContainer} from "@react-navigation/native";
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import ReviewDetails from "./screens/reviewDetails";
+import 'react-native-gesture-handler';
+import {createDrawerNavigator} from "@react-navigation/drawer";
+import RouteHome from "./routes/home";
+import RouteAbout from "./routes/about";
 
-const Stack = createNativeStackNavigator();
+const Drawer = createDrawerNavigator();
 export default function App() {
     return (
         <NavigationContainer>
-                <Stack.Navigator initialRouteName={'Home'}>
-                    <Stack.Screen name={"Home"} component={Home}/>
-                    <Stack.Screen name={"Details"} component={ReviewDetails}/>
-                </Stack.Navigator>
+            <Drawer.Navigator>
+                <Drawer.Screen name="HomeStack" component={RouteHome} />
+                <Drawer.Screen name="AboutStack" component={RouteAbout} />
+            </Drawer.Navigator>
         </NavigationContainer>
     );
 }
 
-const styles = StyleSheet.create({
-    container: {},
-});
 
